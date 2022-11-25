@@ -12,15 +12,15 @@ BYTE get_msb(WORD word) {
 }
 
 char* atoxml(WORD word) {
-	char* result;
-	result = (char*)malloc(5);
+	char* result = NULL;
+	result = (char*)malloc(7);
 	sprintf_s(result, 5, "%02X%02X", get_msb(word), get_lsb(word));
 	return result;
 }
 
 char* atoxlm(WORD word) {
-	char* result;
-	result = (char*)malloc(5);
+	char* result = NULL;
+	result = (char*)malloc(7);
 	sprintf_s(result, 5, "%02X%02X", get_lsb(word), get_msb(word));
 	return result;
 }
