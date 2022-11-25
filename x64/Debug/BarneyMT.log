@@ -1,9 +1,2 @@
-﻿  app.c
-  basic.c
-  desktop.c
-  hexa.c
-C:\work\BarneyMT\hexa.c(12,18): warning C4028: parâmetro formal 1 diferente da declaração
-C:\work\BarneyMT\hexa.c(12,37): warning C4029: lista de parâmetros formais declarada diferente da definição
-  Gerando Código...
-  BarneyMT.cpp
+﻿  basic.c
   BarneyMT.vcxproj -> C:\work\barneyMT\x64\Debug\BarneyMT.exe

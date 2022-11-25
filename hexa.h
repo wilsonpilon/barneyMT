@@ -9,7 +9,8 @@ extern "C" {
 
 	BYTE get_lsb(WORD word);
 	BYTE get_msb(WORD word);
-	void atoxb(WORD word);
+	char* atoxml(WORD word);
+	char* atoxlm(WORD word);
 
 #ifdef __cplusplus
 };

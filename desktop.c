@@ -49,7 +49,7 @@ unsigned short dsk_init() {
 bool dsk_loop() {
 	bool done = false;
 	bool redraw = true;
-	char buffer[80];
+	char buffer[81];
 
 
 	al_start_timer(timer);
@@ -71,8 +71,14 @@ bool dsk_loop() {
 			MSX_cls(MSX_color_dark_blue);
 
 			MSX_print(100, 100, "MSX", MSX_color_white);
-			strcpy_s(buffer, 80, "atoxb(buffer, 453)");
-			MSX_print(200, 200, buffer, MSX_color_dark_yellow);
+			char* lsbmsb = NULL;
+			char* msblsb = NULL;
+			lsbmsb = atoxml(453);
+			MSX_print(200, 200, lsbmsb, MSX_color_dark_yellow);
+			free(msblsb);
+			lsbmsb = atoxlm(453);
+			MSX_print(220, 220, lsbmsb, MSX_color_dark_green);
+			free(lsbmsb);
 
 			al_flip_display();
 			redraw = false;
