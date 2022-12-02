@@ -17,7 +17,7 @@ ALLEGRO_DISPLAY* disp;
 ALLEGRO_FONT* font;
 ALLEGRO_EVENT event;
 
-unsigned short dsk_init() {
+unsigned short desktop_init() {
 	unsigned short dsk_erro = 0;
 	if (!al_init())
 		dsk_erro += 2;
@@ -46,11 +46,16 @@ unsigned short dsk_init() {
 	return dsk_erro;
 }
 
-bool dsk_loop() {
+void desktop_quit() {
+	al_destroy_font(font);
+	al_destroy_display(disp);
+	al_destroy_timer(timer);
+	al_destroy_event_queue(queue);
+}
+
+bool desktop_loop(bool (*loop)()) {
 	bool done = false;
 	bool redraw = true;
-	char buffer[81];
-
 
 	al_start_timer(timer);
 	while (true) {
@@ -68,17 +73,8 @@ bool dsk_loop() {
 		if (done)
 			break;
 		if (redraw && al_is_event_queue_empty(queue)) {
-			MSX_cls(MSX_color_dark_blue);
 
-			MSX_print(100, 100, "MSX", MSX_color_white);
-			char* lsbmsb = NULL;
-			char* msblsb = NULL;
-			lsbmsb = atoxml(453);
-			MSX_print(200, 200, lsbmsb, MSX_color_dark_yellow);
-			free(msblsb);
-			lsbmsb = atoxlm(453);
-			MSX_print(220, 220, lsbmsb, MSX_color_dark_green);
-			free(lsbmsb);
+			loop();
 
 			al_flip_display();
 			redraw = false;
@@ -88,9 +84,9 @@ bool dsk_loop() {
 	return false;
 }
 
-void dsk_quit() {
-	al_destroy_font(font);
-	al_destroy_display(disp);
-	al_destroy_timer(timer);
-	al_destroy_event_queue(queue);
+void desktop_window(int x, int y, int width, int height, char* title, ALLEGRO_COLOR color) {
+	MSX_line(x, y, x + width, y + height, color);
+	MSX_line(x, y+height, x + width, y + height, color);
+	MSX_line(x, y, x, y + height, color);
+	MSX_line(x + width, y, x + width, y + height, color);
 }

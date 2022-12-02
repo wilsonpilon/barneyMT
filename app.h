@@ -3,7 +3,8 @@
 extern "C" {
 #endif
 
-	bool run(int, char**);
+	bool run(int argc, char* argv[]);
+	bool barneymt();
 
 #ifdef __cplusplus
 }

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "msx.h"
 #include "hexa.h"
 
 BYTE get_lsb(WORD word) {

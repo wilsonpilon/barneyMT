@@ -1,2 +1,7 @@
-﻿  hexa.c
+﻿  app.c
+  basic.c
+  desktop.c
+  hexa.c
+  Gerando Código...
+  BarneyMT.cpp
   BarneyMT.vcxproj -> C:\work\barneyMT\x64\Debug\BarneyMT.exe

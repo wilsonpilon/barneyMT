@@ -1,8 +1,5 @@
 #pragma once
 
-#define WORD unsigned short
-#define BYTE unsigned char
-
 #ifdef __cplusplus
 extern "C" {
 #endif

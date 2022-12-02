@@ -15,3 +15,7 @@
 #define MSX_color_magenta al_map_rgb(183,102,181)
 #define MSX_color_gray al_map_rgb(204,204,204)
 #define MSX_color_white al_map_rgb(255,255,255)
+
+#define WORD unsigned short
+#define BYTE unsigned char
+
